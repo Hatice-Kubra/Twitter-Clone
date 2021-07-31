@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+.container {
+    height: 100vh;
+    background: url(../../images/login.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formHeader {
+    font-family: 'Acme', sans-serif;
+    font-size: 45px;
+    background: #7f00ff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #e254d6,
+      #606cb1
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #e254d6,
+      #606cb1
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
+.SidebarOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.SidebarOption:hover {
+    background-color: #e8f5fe;
+    border-radius: 30px;
+    color: var(--twitter-color);
+    transition: color 100ms ease-out;
+}
+
+.sidebarOption {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .sidebarOption:hover {
+    background-color: #e7cce7;
+    border-radius: 30px;
+    color: var(--twitter-color);
+    transition: color 100ms ease-out;
+  }
+  
+  .sidebarOption > .MuiSvgIcon-root {
+    padding: 20px;
+  }
+  
+  .sidebarOption > h2 {
+    font-family: 'Acme', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin-right: 20px;
+  }
+  
+  .sidebarOption--active {
+    color: var(--twitter-color);
+  }
