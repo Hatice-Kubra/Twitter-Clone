@@ -4,14 +4,14 @@ import { useForm } from "react-hook-form";
 import { Form, Segment, Button, Grid, Message } from 'semantic-ui-react';
 import styles from "./signup.module.css";
 
-const SignUp = () => {
+const SignUp = (props) => {
     const { register, errors, handleSubmit, setValue } = useForm();
 
     useEffect(() => {
-        register("username", { required: true })
-        register("bday", { required: true })
-        register("email", { required: true })
-        register("password", { required: true, minLength: 6 })
+        register("username", { required: true });
+        register("bday", { required: true });
+        register("email", { required: true });
+        register("password", { required: true, minLength: 6 });
 
       }, []);
 
@@ -19,6 +19,7 @@ const SignUp = () => {
         console.log(data);
     }
     return(
+        <div className={'page-container'}>
         <Grid textAlign="center"  verticalAlign="middle" className={styles.container}>
             <Grid.Column style = {{ maxWidth: 450} }>
                 <h1 className={styles.formHeader}>Twitter Clone</h1>
@@ -36,7 +37,7 @@ const SignUp = () => {
                             setValue(name, value);
                         }} 
                          placeholder="Kullanıcı Adı" 
-                         type="text" />
+                         type="text"/>
 
 
                         <Form.Input 
@@ -47,8 +48,7 @@ const SignUp = () => {
                             setValue(name, value);
                         }} 
                         placeholder="Doğum Tarihi" 
-                        type="date" />
-
+                        type="date"/>
 
                         <Form.Input 
                         fluid icon="mail" 
@@ -59,7 +59,6 @@ const SignUp = () => {
                         }} 
                         placeholder="Email Adresi" 
                         type="email" />
-
 
                         <Form.Input 
                         fluid icon="lock" 
@@ -85,6 +84,7 @@ const SignUp = () => {
             </Grid.Column>
 
         </Grid>
+        </div>
     );
 };
 

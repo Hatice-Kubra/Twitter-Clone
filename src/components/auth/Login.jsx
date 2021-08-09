@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { Form, Segment, Button, Grid, Message } from 'semantic-ui-react';
 import styles from "./login.module.css";
+import { ErrorSharp } from '@material-ui/icons';
 
-const Login = () => {
+const Login = (props) => {
     const { register, errors, handleSubmit, setValue } = useForm();
 
     useEffect(() => {
@@ -17,6 +18,7 @@ const Login = () => {
     };
 
     return(
+        <div className={'page-container'}>
         <Grid textAlign="center"  verticalAlign="middle" className={styles.container}>
             <Grid.Column style = {{ maxWidth: 450} }>
                 <h1 className={styles.formHeader}>Twitter Clone</h1>
@@ -56,6 +58,7 @@ const Login = () => {
             </Grid.Column>
 
         </Grid>
+        </div>
     );
 };
 

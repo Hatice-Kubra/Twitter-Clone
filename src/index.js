@@ -4,6 +4,7 @@ import 'semantic-ui-css/semantic.min.css';
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import './index.css';
 import App from './App';
+import firebase from './firebase2';
 import SignUp from "./components/auth/SignUp";
 import Login from "./components/auth/Login";
 import * as serviceWorker from './serviceWorker';

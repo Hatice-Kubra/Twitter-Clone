@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./TweetBox.css";
-import db from "./firebase";
+import db from "./firebase2";
 import { Avatar, Button } from "@material-ui/core";
 
 function TweetBox() {
