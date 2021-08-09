@@ -3,14 +3,15 @@ import Sidebar from "./Sidebar";
 import Feed from "./Feed";
 import Widgets from "./Widgets";
 import "./App.css";
-import "../src/components/auth/SignUp";
-import "../src/components/auth/Login";
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import SignUp from "./components/auth/SignUp";
+import Login from "./components/auth/Login";
 
 function App() {
   return (
 
     <div className="app">
+      <SignUp/>
+      <Login/>
   
       <Sidebar />
       <Feed />

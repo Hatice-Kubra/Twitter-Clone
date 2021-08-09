@@ -1,11 +1,16 @@
-import React, {useEffect} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import { useFirebase } from 'react-redux-firebase';
 import { useForm } from "react-hook-form";
 import { Form, Segment, Button, Grid, Message } from 'semantic-ui-react';
 import styles from "./signup.module.css";
 
 const SignUp = (props) => {
+    const firebase = useFirebase();
     const { register, errors, handleSubmit, setValue } = useForm();
+
+    const [ fbErrors, setFbErrors ] = useState([]);
+    const [submitting, setSubmitting] = useState(false);
 
     useEffect(() => {
         register("username", { required: true });
@@ -15,11 +20,29 @@ const SignUp = (props) => {
 
       }, []);
 
-    const onSubmit = (data, e) => {
-        console.log(data);
-    }
+    const onSubmit = ({username, bday, email, password}, e) => {
+        setSubmitting(true);
+        setFbErrors([]);
+
+        const [first, last] = username.split(" ");
+
+
+        firebase
+        .createUser(
+          { username, bday, email, password},
+          { name: username, avatar: `https://ui-avatars.com/api/?name=${first}+${last}&background=random&color=fff`}
+        )
+        .then((user) => {
+          console.log(user);
+        })
+        .catch((error) => {
+            console.error(error);
+            setSubmitting(false);
+        });
+
+    };
+    
     return(
-        <div className={'page-container'}>
         <Grid textAlign="center"  verticalAlign="middle" className={styles.container}>
             <Grid.Column style = {{ maxWidth: 450} }>
                 <h1 className={styles.formHeader}>Twitter Clone</h1>
@@ -71,7 +94,7 @@ const SignUp = (props) => {
                         type="password"/>
 
 
-                        <Button color="purple" fluid size="large">
+                        <Button color="purple" fluid size="large" disabled={submitting}>
                         Kayıt Ol
                         </Button>
                     </Segment>
@@ -84,7 +107,6 @@ const SignUp = (props) => {
             </Grid.Column>
 
         </Grid>
-        </div>
     );
 };
 
